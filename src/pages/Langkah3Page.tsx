@@ -15,6 +15,8 @@ import {
 import { motion } from 'motion/react';
 import { PageId } from '../types/learning';
 import { PageFooterNav } from '../components/PageFooterNav';
+import { TeacherAudioButton } from '../components/TeacherAudioButton';
+import { stopTeacherAudio } from '../utils/teacherAudio';
 
 interface Langkah3PageProps {
   onNavigate: (page: PageId) => void;
@@ -238,6 +240,7 @@ export const Langkah3Page: React.FC<Langkah3PageProps> = ({ onNavigate }) => {
 
   const handleNextQuestion = () => {
     if (!hasAnsweredCurrent) return;
+    stopTeacherAudio();
     if (session.currentIndex < CABARAN_QUIZ.length - 1) {
       setSession((prev) => ({
         ...prev,
@@ -252,6 +255,7 @@ export const Langkah3Page: React.FC<Langkah3PageProps> = ({ onNavigate }) => {
   };
 
   const handleRetryQuiz = () => {
+    stopTeacherAudio();
     setSession({
       currentIndex: 0,
       answers: {},
@@ -299,10 +303,13 @@ export const Langkah3Page: React.FC<Langkah3PageProps> = ({ onNavigate }) => {
         <h1 className="font-display text-3xl sm:text-4xl font-bold text-[#62546A] text-balance">
           Langkah 3: Cabaran Bijak & Pentaksiran
         </h1>
-        <p className="text-base font-bold text-[#62546A] max-w-2xl leading-relaxed">
-          Uji kefahaman kamu melalui kuiz interaktif 10 soalan dengan pengiraan markah automatik,
-          kemudian terokai aktiviti pengayaan Wordwall dan pemulihan Kuiz Kebersihan Diri.
-        </p>
+        <div className="flex items-start gap-2.5 max-w-2xl">
+          <p className="text-base font-bold text-[#62546A] leading-relaxed">
+            Uji kefahaman kamu melalui kuiz interaktif 10 soalan dengan pengiraan markah automatik,
+            kemudian terokai aktiviti pengayaan Wordwall dan pemulihan Kuiz Kebersihan Diri.
+          </p>
+          <TeacherAudioButton clipId="langkah3-arahan" tone="pink" className="mt-0.5" />
+        </div>
       </header>
 
       {/* Kuiz Interaktif 10 Soalan */}
@@ -319,9 +326,12 @@ export const Langkah3Page: React.FC<Langkah3PageProps> = ({ onNavigate }) => {
               >
                 Kuiz Interaktif: Cabaran Bijak!
               </h2>
-              <p className="text-sm font-bold text-[#62546A]/85">
-                Jawab satu demi satu untuk mendapatkan maklum balas segera dan markah automatik.
-              </p>
+              <div className="flex items-start gap-2">
+                <p className="text-sm font-bold text-[#62546A]/85">
+                  Jawab satu demi satu untuk mendapatkan maklum balas segera dan markah automatik.
+                </p>
+                <TeacherAudioButton clipId="langkah3-kuiz" tone="pink" />
+              </div>
             </div>
           </div>
 
@@ -553,10 +563,13 @@ export const Langkah3Page: React.FC<Langkah3PageProps> = ({ onNavigate }) => {
             >
               Aktiviti Pengayaan dan Pemulihan
             </h2>
-            <p className="text-sm font-bold text-[#62546A]">
-              Aktiviti susulan disediakan mengikut tahap murid: Pengayaan melalui Wordwall dan
-              Pemulihan melalui Google Sites.
-            </p>
+            <div className="flex items-start gap-2">
+              <p className="text-sm font-bold text-[#62546A]">
+                Aktiviti susulan disediakan mengikut tahap murid: Pengayaan melalui Wordwall dan
+                Pemulihan melalui Google Sites.
+              </p>
+              <TeacherAudioButton clipId="langkah3-susulan" tone="blue" />
+            </div>
           </div>
         </div>
 

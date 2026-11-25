@@ -16,6 +16,8 @@ import { CURRICULUM } from '../data/curriculum';
 import { GroupId, PageId, StudentProgress } from '../types/learning';
 import { FruitMascot, ResilientImage } from '../components/KawaiiArtwork';
 import { PageFooterNav } from '../components/PageFooterNav';
+import { TeacherAudioButton } from '../components/TeacherAudioButton';
+import { stopTeacherAudio } from '../utils/teacherAudio';
 import {
   POSTER_PRACTICES,
   PracticeIllustration,
@@ -120,11 +122,13 @@ export const Langkah2Page: React.FC<Langkah2PageProps> = ({
   const [anggurChecked, setAnggurChecked] = useState(false);
 
   const handleOpenGroup = (group: GroupId) => {
+    stopTeacherAudio();
     setOpenedGroup(group);
     onUpdateProgress((prev) => ({ ...prev, activeGroup: group }));
   };
 
   const handleBackToActivities = () => {
+    stopTeacherAudio();
     setOpenedGroup(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -254,10 +258,13 @@ export const Langkah2Page: React.FC<Langkah2PageProps> = ({
             </button>
           )}
         </div>
-        <p className="text-base font-bold text-[#62546A] max-w-2xl leading-relaxed">
-          Pilih kumpulan mengikut tahap penguasaan masing-masing untuk menyiapkan tugasan membina
-          ayat berdasarkan poster “Kebersihan adalah Keutamaan”.
-        </p>
+        <div className="flex items-start gap-2.5 max-w-2xl">
+          <p className="text-base font-bold text-[#62546A] leading-relaxed">
+            Pilih kumpulan mengikut tahap penguasaan masing-masing untuk menyiapkan tugasan membina
+            ayat berdasarkan poster “Kebersihan adalah Keutamaan”.
+          </p>
+          <TeacherAudioButton clipId="langkah2-arahan" tone="lavender" className="mt-0.5" />
+        </div>
       </header>
 
       {/* Poster Rujukan Ringkas (Boleh dibuka/tutup ketika menyiapkan tugasan kumpulan) */}
@@ -427,9 +434,12 @@ export const Langkah2Page: React.FC<Langkah2PageProps> = ({
             </p>
           </div>
 
-          <p className="rounded-2xl bg-[#FFF0C9]/55 border-l-4 border-[#62546A] px-4 py-3 text-sm sm:text-base font-bold text-[#62546A]">
-            Arahan: {CURRICULUM.groupObjectives[0].text}
-          </p>
+          <div className="rounded-2xl bg-[#FFF0C9]/55 border-l-4 border-[#62546A] px-4 py-3 flex items-start sm:items-center justify-between gap-3">
+            <p className="text-sm sm:text-base font-bold text-[#62546A]">
+              Arahan: {CURRICULUM.groupObjectives[0].text}
+            </p>
+            <TeacherAudioButton clipId="langkah2-betik" tone="cream" />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {POSTER_PRACTICES.map((practice, idx) => {
@@ -556,19 +566,25 @@ export const Langkah2Page: React.FC<Langkah2PageProps> = ({
             </p>
           </div>
 
-          <p className="rounded-2xl bg-[#F8DCEB]/55 border-l-4 border-[#62546A] px-4 py-3 text-sm sm:text-base font-bold text-[#62546A]">
-            Arahan: {CURRICULUM.groupObjectives[1].text}
-          </p>
+          <div className="rounded-2xl bg-[#F8DCEB]/55 border-l-4 border-[#62546A] px-4 py-3 flex items-start sm:items-center justify-between gap-3">
+            <p className="text-sm sm:text-base font-bold text-[#62546A]">
+              Arahan: {CURRICULUM.groupObjectives[1].text}
+            </p>
+            <TeacherAudioButton clipId="langkah2-strawberi" tone="pink" />
+          </div>
 
           <div className="space-y-4">
             <div className="space-y-1">
               <h3 className="font-display text-lg font-bold text-[#62546A]">
                 Bahagian A: Padankan Frasa
               </h3>
-              <p className="text-sm font-bold text-[#62546A]/85">
-                Klik satu frasa amalan di sebelah kiri, kemudian klik sambungan frasa yang tepat di
-                sebelah kanan.
-              </p>
+              <div className="flex items-start gap-2">
+                <p className="text-sm font-bold text-[#62546A]/85">
+                  Klik satu frasa amalan di sebelah kiri, kemudian klik sambungan frasa yang tepat di
+                  sebelah kanan.
+                </p>
+                <TeacherAudioButton clipId="langkah2-strawberi-a" tone="pink" />
+              </div>
             </div>
 
             {selectedLeftId && (
@@ -690,9 +706,12 @@ export const Langkah2Page: React.FC<Langkah2PageProps> = ({
               <h3 className="font-display text-lg font-bold text-[#62546A]">
                 Bahagian B: Bina Tiga Ayat Tentang Amalan Kebersihan Diri
               </h3>
-              <p className="text-sm font-bold text-[#62546A]/85">
-                Gunakan frasa yang telah dipadankan untuk membina tiga ayat lengkap.
-              </p>
+              <div className="flex items-start gap-2">
+                <p className="text-sm font-bold text-[#62546A]/85">
+                  Gunakan frasa yang telah dipadankan untuk membina tiga ayat lengkap.
+                </p>
+                <TeacherAudioButton clipId="langkah2-strawberi-b" tone="pink" />
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -796,14 +815,20 @@ export const Langkah2Page: React.FC<Langkah2PageProps> = ({
             </p>
           </div>
 
-          <p className="rounded-2xl bg-[#E2EFFF]/65 border-l-4 border-[#62546A] px-4 py-3 text-sm sm:text-base font-bold text-[#62546A]">
-            Arahan: {CURRICULUM.groupObjectives[2].text}
-          </p>
+          <div className="rounded-2xl bg-[#E2EFFF]/65 border-l-4 border-[#62546A] px-4 py-3 flex items-start sm:items-center justify-between gap-3">
+            <p className="text-sm sm:text-base font-bold text-[#62546A]">
+              Arahan: {CURRICULUM.groupObjectives[2].text}
+            </p>
+            <TeacherAudioButton clipId="langkah2-anggur" tone="blue" />
+          </div>
 
           <div className="rounded-2xl bg-[#E2EFFF]/70 p-4 sm:p-5 space-y-2.5">
-            <p className="text-sm font-bold text-[#62546A]">
-              Pilihan Perkataan (Klik satu perkataan, kemudian klik tempat kosong pada ayat):
-            </p>
+            <div className="flex items-start gap-2">
+              <p className="text-sm font-bold text-[#62546A]">
+                Pilihan Perkataan (Klik satu perkataan, kemudian klik tempat kosong pada ayat):
+              </p>
+              <TeacherAudioButton clipId="langkah2-anggur-kata" tone="blue" />
+            </div>
             <div className="flex flex-wrap gap-2.5">
               {ANGGUR_WORDS.map((word) => {
                 const isSelected = selectedBankWord === word;

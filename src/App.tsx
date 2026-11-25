@@ -9,6 +9,7 @@ import { PenutupPage } from './pages/PenutupPage';
 import { RuangGuruPage } from './pages/RuangGuruPage';
 import { SetInduksiPage } from './pages/SetInduksiPage';
 import { PageId, StudentProgress } from './types/learning';
+import { stopTeacherAudio } from './utils/teacherAudio';
 import opdHygieneBg from './assets/images/opd_hygiene_background_clean_1795578109982.jpg';
 
 const STORAGE_KEY = 'bm-tahun5-kebersihan-diri-v3';
@@ -67,7 +68,14 @@ export default function App() {
     }
   }, [progress]);
 
+  useEffect(() => {
+    return () => {
+      stopTeacherAudio();
+    };
+  }, []);
+
   const handleNavigate = (page: PageId) => {
+    stopTeacherAudio();
     setCurrentPage(page);
     setProgress((prev) => ({
       ...prev,
@@ -130,8 +138,8 @@ export default function App() {
 
       <footer className="no-print border-t border-[#D9B8D8]/45 bg-white/88 backdrop-blur-md py-5 px-4 text-center">
         <p className="text-xs sm:text-sm font-bold text-[#62546A]">
-          {CURRICULUM.title} · {CURRICULUM.subject} Tahun {CURRICULUM.year} · Tema{' '}
-          {CURRICULUM.theme}
+          <span className="font-display font-bold">{CURRICULUM.title}</span> ·{' '}
+          {CURRICULUM.subject} Tahun {CURRICULUM.year} · Tema {CURRICULUM.theme}
         </p>
       </footer>
     </div>

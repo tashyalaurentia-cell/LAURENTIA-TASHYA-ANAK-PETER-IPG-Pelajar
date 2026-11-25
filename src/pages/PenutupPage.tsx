@@ -15,6 +15,7 @@ import modernSoapBubblesImg from '../assets/images/modern_3d_soap_bubbles_179553
 import modernDentalTowelImg from '../assets/images/modern_3d_dental_towel_1795532487329.jpg';
 import { ResilientImage } from '../components/KawaiiArtwork';
 import { PageFooterNav } from '../components/PageFooterNav';
+import { TeacherAudioButton } from '../components/TeacherAudioButton';
 
 interface PenutupPageProps {
   onNavigate: (page: PageId) => void;
@@ -64,10 +65,13 @@ export const PenutupPage: React.FC<PenutupPageProps> = ({ onNavigate }) => {
         <h1 className="font-display text-3xl sm:text-4xl font-bold text-[#62546A] text-balance">
           Penutup: Rumusan & Refleksi Pembelajaran
         </h1>
-        <p className="text-base font-bold text-[#62546A] max-w-2xl leading-relaxed">
-          Syabas! Imbas kembali rumusan pembelajaran hari ini, kongsikan refleksi ringkas kamu dan
-          lafazkan slogan kebersihan bersama-sama.
-        </p>
+        <div className="flex items-start gap-2.5 max-w-2xl">
+          <p className="text-base font-bold text-[#62546A] leading-relaxed">
+            Syabas! Imbas kembali rumusan pembelajaran hari ini, kongsikan refleksi ringkas kamu dan
+            lafazkan slogan kebersihan bersama-sama.
+          </p>
+          <TeacherAudioButton clipId="penutup-arahan" tone="pink" className="mt-0.5" />
+        </div>
       </header>
 
       {/* 1. Rumusan Pembelajaran */}
@@ -264,10 +268,11 @@ export const PenutupPage: React.FC<PenutupPageProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <blockquote className="max-w-3xl mx-auto">
+        <blockquote className="max-w-3xl mx-auto flex items-center justify-center gap-3">
           <p className="font-display text-2xl sm:text-4xl font-bold leading-snug text-[#62546A] text-balance">
             “Kebersihan amalan kita, hidup sihat setiap masa!”
           </p>
+          <TeacherAudioButton clipId="penutup-slogan" tone="blue" />
         </blockquote>
 
         <div className="pt-1">

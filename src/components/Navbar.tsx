@@ -23,22 +23,29 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
     <header className="no-print sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#D9B8D8]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 h-16">
-          {/* Penjenamaan ringkas di sebelah kiri */}
+          {/* Penjenamaan rasmi laman web di sebelah kiri */}
           <button
             type="button"
             onClick={() => handleSelect('halaman-utama')}
-            className="flex items-center gap-2.5 text-left whitespace-nowrap shrink-0 cursor-pointer group"
+            className="flex items-center gap-2 text-left whitespace-nowrap shrink-0 cursor-pointer group"
           >
             <SoapMascot className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 transition-transform duration-200 group-hover:scale-105" />
-            <span className="font-display text-base sm:text-lg font-bold text-[#62546A] tracking-tight">
-              Kebersihan Kita
+            <span className="font-display text-sm sm:text-base xl:text-lg font-bold text-[#62546A] tracking-tight flex items-center gap-1.5">
+              <span>Kebersihan Tanggungjawab Kita</span>
+              <span
+                aria-hidden="true"
+                className="hidden sm:inline-flex items-center gap-0.5 text-[#8FB8E8]"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F3A6C8]" />
+                <span className="w-2 h-2 rounded-full bg-[#9CC4FF]" />
+              </span>
             </span>
           </button>
 
           {/* Bar menu mendatar 7 bahagian */}
           <nav
             aria-label="Navigasi Utama Tujuh Bahagian"
-            className="hidden lg:flex items-center gap-1.5 xl:gap-2 overflow-x-auto no-scrollbar"
+            className="hidden lg:flex items-center gap-1 xl:gap-1.5 overflow-x-auto no-scrollbar"
           >
             {PAGES.map((page) => {
               const isActive = page.id === currentPage;
@@ -49,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
                   type="button"
                   onClick={() => handleSelect(page.id)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`relative px-3 xl:px-4 py-2.5 rounded-t-xl text-[13px] xl:text-sm font-bold whitespace-nowrap shrink-0 cursor-pointer transition-colors duration-150 ${
+                  className={`relative px-2.5 xl:px-3.5 py-2.5 rounded-t-xl text-xs xl:text-sm font-bold whitespace-nowrap shrink-0 cursor-pointer transition-colors duration-150 ${
                     isTeacherSpace
                       ? isActive
                         ? 'bg-[#E2EFFF] text-[#62546A]'

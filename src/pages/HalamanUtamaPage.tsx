@@ -16,6 +16,7 @@ import modernTeacherGuidanceImg from '../assets/images/modern_teacher_guidance_1
 import modernSoapBubblesImg from '../assets/images/modern_3d_soap_bubbles_1795532486219.jpg';
 import modernDentalTowelImg from '../assets/images/modern_3d_dental_towel_1795532487329.jpg';
 import { ResilientImage } from '../components/KawaiiArtwork';
+import { TeacherAudioButton } from '../components/TeacherAudioButton';
 
 interface HalamanUtamaPageProps {
   onNavigate: (page: PageId) => void;
@@ -66,26 +67,41 @@ export const HalamanUtamaPage: React.FC<HalamanUtamaPageProps> = ({ onNavigate }
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Kolum Kiri: Maklumat Kecil, Tajuk Besar, Penerangan & 2 Butang */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
+          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-5">
             <p className="text-sm sm:text-base font-extrabold tracking-wide text-[#62546A]/80 hero-enter">
               Bahasa Melayu Tahun 5 <span aria-hidden="true" className="mx-1.5 text-[#D9B8D8]">·</span> Tema Kesihatan dan Kebersihan
             </p>
 
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-[4.25rem] font-bold tracking-tight leading-[1.06] text-[#62546A] text-balance hero-enter-delay-1">
-              Jom Belajar{' '}
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] font-bold tracking-tight leading-[1.08] text-[#62546A] text-balance hero-enter-delay-1">
+              Kebersihan{' '}
               <span className="relative inline-block">
-                <span className="relative z-10">Kebersihan!</span>
+                <span className="relative z-10">Tanggungjawab Kita</span>
                 <span
                   aria-hidden="true"
-                  className="absolute left-0 right-0 bottom-1.5 sm:bottom-2 h-3.5 sm:h-4 rounded-full bg-[#FFF0C9] -z-0"
+                  className="absolute left-0 right-0 bottom-1 sm:bottom-1.5 h-3 sm:h-3.5 rounded-full bg-[#FFF0C9] -z-0"
                 />
+              </span>
+              <span
+                aria-hidden="true"
+                className="inline-flex items-center gap-1 ml-2.5 align-middle -translate-y-1"
+              >
+                <span className="w-3 h-3 rounded-full bg-[#E2EFFF] border border-[#9CC4FF]" />
+                <span className="w-2 h-2 rounded-full bg-[#F8DCEB] border border-[#F3A6C8] -translate-y-2" />
+                <Sparkles className="w-5 h-5 text-[#D9B8D8]" />
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl leading-relaxed font-bold text-[#62546A] max-w-2xl hero-enter-delay-2">
-              Kenali amalan kebersihan diri, bina ayat dan kuasai Bahasa Melayu melalui aktiviti
-              pembelajaran yang menarik dan menyeronokkan!
+            <p className="font-display text-xl sm:text-2xl font-bold text-[#62546A]/90 hero-enter-delay-2">
+              Jom Belajar Kebersihan!
             </p>
+
+            <div className="flex items-start gap-2.5 max-w-2xl hero-enter-delay-2">
+              <p className="text-base sm:text-lg leading-relaxed font-bold text-[#62546A]">
+                Kenali amalan kebersihan diri, bina ayat dan kuasai Bahasa Melayu melalui aktiviti
+                pembelajaran yang menarik dan menyeronokkan!
+              </p>
+              <TeacherAudioButton clipId="utama-hero" tone="pink" className="mt-0.5" />
+            </div>
 
             <div className="pt-2 hero-enter-delay-3">
               <button
@@ -165,12 +181,15 @@ export const HalamanUtamaPage: React.FC<HalamanUtamaPageProps> = ({ onNavigate }
               Hai, Murid-murid! 🌸
             </h2>
 
-            <p className="text-base sm:text-lg leading-relaxed font-semibold text-[#62546A]/90 max-w-2xl">
-              Hai, murid-murid! Hari ini kita akan belajar tentang kebersihan diri. Kita akan
-              melihat, berfikir, berkongsi idea dan membina ayat tentang amalan kebersihan yang
-              penting dalam kehidupan seharian. Bersedia untuk belajar? Jom kita mulakan
-              bersama-sama!
-            </p>
+            <div className="flex items-start gap-2.5 max-w-2xl">
+              <p className="text-base sm:text-lg leading-relaxed font-semibold text-[#62546A]/90">
+                Hai, murid-murid! Hari ini kita akan belajar tentang kebersihan diri. Kita akan
+                melihat, berfikir, berkongsi idea dan membina ayat tentang amalan kebersihan yang
+                penting dalam kehidupan seharian. Bersedia untuk belajar? Jom kita mulakan
+                bersama-sama!
+              </p>
+              <TeacherAudioButton clipId="utama-pesanan" tone="blue" className="mt-0.5" />
+            </div>
           </div>
 
           {/* Ilustrasi Editorial Bimbingan Guru & Murid */}
@@ -278,11 +297,14 @@ export const HalamanUtamaPage: React.FC<HalamanUtamaPageProps> = ({ onNavigate }
             </h2>
           </div>
 
-          <p className="text-base sm:text-xl leading-relaxed font-bold text-[#62546A]">
-            Pada akhir pembelajaran, murid dapat membina dan menulis empat ayat tentang amalan
-            kebersihan diri untuk menyatakan pendapat berdasarkan poster ‘Kebersihan adalah
-            Keutamaan’ dengan jelas dan tepat.
-          </p>
+          <div className="flex items-start gap-2.5">
+            <p className="text-base sm:text-xl leading-relaxed font-bold text-[#62546A]">
+              Pada akhir pembelajaran, murid dapat membina dan menulis empat ayat tentang amalan
+              kebersihan diri untuk menyatakan pendapat berdasarkan poster ‘Kebersihan adalah
+              Keutamaan’ dengan jelas dan tepat.
+            </p>
+            <TeacherAudioButton clipId="utama-objektif" tone="cream" className="mt-0.5" />
+          </div>
         </div>
       </section>
 

@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { PageId } from '../types/learning';
 import { PageFooterNav } from '../components/PageFooterNav';
+import { TeacherAudioButton } from '../components/TeacherAudioButton';
 
 interface SetInduksiPageProps {
   onNavigate: (page: PageId) => void;
@@ -81,10 +82,13 @@ export const SetInduksiPage: React.FC<SetInduksiPageProps> = ({ onNavigate }) =>
         <h1 className="font-display text-3xl sm:text-4xl font-bold text-[#62546A] text-balance">
           Set Induksi: Jom Bersihkan Diri!
         </h1>
-        <p className="text-base font-bold text-[#62546A] max-w-2xl leading-relaxed">
-          Tonton video “Jom Bersihkan Diri”, jawab aktiviti soal jawab ringkas dan kaitkan amalan
-          harian kamu dengan tajuk pembelajaran hari ini.
-        </p>
+        <div className="flex items-start gap-2.5 max-w-2xl">
+          <p className="text-base font-bold text-[#62546A] leading-relaxed">
+            Tonton video “Jom Bersihkan Diri”, jawab aktiviti soal jawab ringkas dan kaitkan amalan
+            harian kamu dengan tajuk pembelajaran hari ini.
+          </p>
+          <TeacherAudioButton clipId="induksi-arahan" tone="blue" className="mt-0.5" />
+        </div>
       </header>
 
       {/* 1. Video YouTube "Jom Bersihkan Diri" */}
@@ -101,10 +105,13 @@ export const SetInduksiPage: React.FC<SetInduksiPageProps> = ({ onNavigate }) =>
               >
                 Video Pengenalan: “Jom Bersihkan Diri”
               </h2>
-              <p className="text-sm font-bold text-[#62546A]/85">
-                Tonton video di bawah untuk mengenal pasti amalan kebersihan diri dalam kehidupan
-                seharian.
-              </p>
+              <div className="flex items-start gap-2">
+                <p className="text-sm font-bold text-[#62546A]/85">
+                  Tonton video di bawah untuk mengenal pasti amalan kebersihan diri dalam kehidupan
+                  seharian.
+                </p>
+                <TeacherAudioButton clipId="induksi-video" tone="blue" />
+              </div>
             </div>
           </div>
 
@@ -147,10 +154,13 @@ export const SetInduksiPage: React.FC<SetInduksiPageProps> = ({ onNavigate }) =>
               <h2 id="soal-jawab-heading" className="font-display text-2xl font-bold text-[#62546A]">
                 Aktiviti Soal Jawab Set Induksi
               </h2>
-              <p className="text-sm font-bold text-[#62546A]/85">
-                Jawab soalan berdasarkan video untuk menghubungkan pengalaman harian kamu dengan
-                tajuk “Kebersihan Tanggungjawab Kita”.
-              </p>
+              <div className="flex items-start gap-2">
+                <p className="text-sm font-bold text-[#62546A]/85">
+                  Jawab soalan berdasarkan video untuk menghubungkan pengalaman harian kamu dengan
+                  tajuk “Kebersihan Tanggungjawab Kita”.
+                </p>
+                <TeacherAudioButton clipId="induksi-soal-jawab" tone="pink" />
+              </div>
             </div>
           </div>
 
@@ -227,13 +237,16 @@ export const SetInduksiPage: React.FC<SetInduksiPageProps> = ({ onNavigate }) =>
 
         {/* Soalan Perkongsian Pengalaman Kendiri */}
         <div className="rounded-2xl bg-[#FFF0C9]/55 p-5 space-y-3">
-          <label
-            htmlFor="prior-habit-input"
-            className="block font-display text-base sm:text-lg font-bold text-[#62546A]"
-          >
-            Perkongsian Sedia Ada: Apakah satu amalan kebersihan yang telah kamu lakukan sebelum
-            memulakan kelas hari ini?
-          </label>
+          <div className="flex items-start justify-between gap-2.5">
+            <label
+              htmlFor="prior-habit-input"
+              className="block font-display text-base sm:text-lg font-bold text-[#62546A]"
+            >
+              Perkongsian Sedia Ada: Apakah satu amalan kebersihan yang telah kamu lakukan sebelum
+              memulakan kelas hari ini?
+            </label>
+            <TeacherAudioButton clipId="induksi-kongsi" tone="cream" />
+          </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <input
               id="prior-habit-input"

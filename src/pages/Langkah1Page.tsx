@@ -11,6 +11,7 @@ import {
 import { PageId } from '../types/learning';
 import { PageFooterNav } from '../components/PageFooterNav';
 import { ResilientImage } from '../components/KawaiiArtwork';
+import { TeacherAudioButton } from '../components/TeacherAudioButton';
 import {
   POSTER_PRACTICES,
   PosterPractice,
@@ -91,10 +92,13 @@ export const Langkah1Page: React.FC<Langkah1PageProps> = ({ onNavigate }) => {
         <h1 className="font-display text-3xl sm:text-4xl font-bold text-[#62546A] text-balance">
           Langkah 1: Poster & Bina Satu Ayat Mudah
         </h1>
-        <p className="text-base font-bold text-[#62546A] max-w-2xl leading-relaxed">
-          Perhatikan poster “Kebersihan adalah Keutamaan”, kenal pasti amalan kebersihan diri dan
-          bina satu ayat mudah secara individu.
-        </p>
+        <div className="flex items-start gap-2.5 max-w-2xl">
+          <p className="text-base font-bold text-[#62546A] leading-relaxed">
+            Perhatikan poster “Kebersihan adalah Keutamaan”, kenal pasti amalan kebersihan diri dan
+            bina satu ayat mudah secara individu.
+          </p>
+          <TeacherAudioButton clipId="langkah1-arahan" tone="pink" className="mt-0.5" />
+        </div>
       </header>
 
       {/* Poster Digital & Aktiviti Individu */}
@@ -133,10 +137,13 @@ export const Langkah1Page: React.FC<Langkah1PageProps> = ({ onNavigate }) => {
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#62546A]">
               “Kebersihan adalah Keutamaan”
             </h3>
-            <p className="text-sm sm:text-base font-bold text-[#62546A] max-w-2xl">
-              Teliti poster di bawah, kemudian klik satu amalan kebersihan diri dan bina satu ayat
-              mudah secara individu.
-            </p>
+            <div className="flex items-start gap-2.5 max-w-2xl">
+              <p className="text-sm sm:text-base font-bold text-[#62546A]">
+                Teliti poster di bawah, kemudian klik satu amalan kebersihan diri dan bina satu ayat
+                mudah secara individu.
+              </p>
+              <TeacherAudioButton clipId="langkah1-poster" tone="pink" />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
