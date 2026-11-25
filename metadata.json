@@ -1,0 +1,6 @@
+{
+  "name": "Kebersihan Tanggungjawab Semua",
+  "description": "Laman web pembelajaran interaktif Bahasa Melayu Tahun 5 bertemakan Kebersihan Diri (SK 3.2, SP 3.2.1).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
